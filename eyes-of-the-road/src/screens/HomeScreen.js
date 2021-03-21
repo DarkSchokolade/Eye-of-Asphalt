@@ -23,7 +23,7 @@ const HomeScreen = () => {
       <h1>All the location under control</h1>
       <Row>
         {speedlimitrefs.map((ref) => (
-          <Col sm={12} md={6} lg={4} xl={3}>
+          <Col key={ref._id} sm={12} md={6} lg={4} xl={3}>
             {/* <h3>{ref.location}</h3> */}
             <LocationCard location={ref} />
           </Col>

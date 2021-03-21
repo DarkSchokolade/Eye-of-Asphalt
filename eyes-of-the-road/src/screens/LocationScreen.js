@@ -17,7 +17,7 @@ const LocationScreen = ({ match }) => {
       setlimitref(data);
     };
     fetchLocation();
-  }, []);
+  }, [match]);
 
   return (
     <>

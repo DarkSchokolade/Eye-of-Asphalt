@@ -1,6 +1,11 @@
-const express = require('express');
+import express from 'express';
+// const dotenv = require('dotenv');
+import dotenv from 'dotenv';
+import speedlimitrefs from './data/speedlimitrefs.js';
+
+dotenv.config();
+
 const app = express();
-const speedlimitrefs = require('./data/speedlimitrefs');
 
 app.get('/', (req, res) => {
   res.send('API is Working');
@@ -15,4 +20,8 @@ app.get('/api/locations/:id', (req, res) => {
   res.json(location);
 });
 
-app.listen(5000, console.log('server running on port 5000'));
+const PORT = process.env.PORT || 5000;
+app.listen(
+  PORT,
+  console.log(`server running on port ${PORT} in ${process.env.NODE_ENV} mode`)
+);

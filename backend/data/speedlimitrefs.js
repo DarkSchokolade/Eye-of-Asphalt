@@ -29,4 +29,4 @@ const speedlimitrefs = [
   },
 ];
 
-module.exports = speedlimitrefs;
+export default speedlimitrefs;
