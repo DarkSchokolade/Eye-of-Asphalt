@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Col, ListGroup, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import speedlimitrefs from '../speedlimitrefs';
+import axios from 'axios';
+// import speedlimitrefs from '../speedlimitrefs';
 
 const LocationScreen = ({ match }) => {
   // match is use to find the :id in url
-  const limitref = speedlimitrefs.find((ref) => ref._id === match.params.id);
+  // const limitref = speedlimitrefs.find((ref) => ref._id === match.params.id);
+
+  const [limitref, setlimitref] = useState([]);
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      const { data } = await axios.get(`/api/locations/${match.params.id}`);
+
+      setlimitref(data);
+    };
+    fetchLocation();
+  }, []);
+
   return (
     <>
       <Link to="/" className="btn btn-light my-3">
