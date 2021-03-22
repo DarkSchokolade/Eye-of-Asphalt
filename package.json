@@ -8,11 +8,13 @@
     "start": "node backend/server",
     "server": "nodemon ./backend/server.js",
     "client": "npm start --prefix eyes-of-the-road",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node ./backend/seeder.js"
   },
   "author": "suhas.k.shetty",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.1"
