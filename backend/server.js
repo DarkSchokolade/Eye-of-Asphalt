@@ -1,10 +1,10 @@
 import express from 'express';
-// const dotenv = require('dotenv');
 import dotenv from 'dotenv';
+import connectDB from './config/db.js';
 import speedlimitrefs from './data/speedlimitrefs.js';
 
 dotenv.config();
-
+connectDB();
 const app = express();
 
 app.get('/', (req, res) => {
