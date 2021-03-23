@@ -1,7 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-import speedlimitrefs from './data/speedlimitrefs.js';
+// import speedlimitrefs from './data/speedlimitrefs.js';
+
+import locationRoutes from './routes/locationsRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -11,14 +13,7 @@ app.get('/', (req, res) => {
   res.send('API is Working');
 });
 
-app.get('/api/locations', (req, res) => {
-  res.json(speedlimitrefs);
-});
-
-app.get('/api/locations/:id', (req, res) => {
-  const location = speedlimitrefs.find((ref) => ref._id == req.params.id);
-  res.json(location);
-});
+app.use('/api/locations', locationRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(
