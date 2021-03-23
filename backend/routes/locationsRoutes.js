@@ -27,7 +27,9 @@ router.get(
     if (location) {
       res.json(location);
     } else {
-      res.status(404).json({ message: 'Location not Found' });
+      // res.status(404).json({ message: 'Location not Found' });
+      res.status(404);
+      throw new Error('Location not Found');
     }
   })
 );
